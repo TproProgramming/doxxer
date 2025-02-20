@@ -100,7 +100,7 @@ def main_menu():
         print("3. Manual")
         print("4. Exit")
 
-        choice = input("\nEnter your choice (1-3): ").strip()
+        choice = input("\nEnter your choice (1-4): ").strip()
 
         if choice == "1":
             ip = input("Enter an IP address or domain: ").strip()
@@ -163,7 +163,7 @@ def parse_args():
     parser.add_argument("-i", "--ip", help="Single IP address or domain to lookup")
     parser.add_argument("-b", "--bulk", help="File containing multiple IPs or domains (one per line)")
     parser.add_argument("-o", "--output", help="Save output to a file")
-    parser.add_argument("-f", "--format", choices=["json", "csv"], default="json", help="Output format")
+    parser.add_argument("-f", "--format", choices=["json", "csv","txt"], default="json", help="Output format")
     parser.add_argument("-m", "--manual", action="store_true", help="Show the manual")
 
     return parser.parse_args()
