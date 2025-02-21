@@ -120,6 +120,17 @@ def main_menu():
         
         else:
             print("Invalid choice, please enter 1, 2, or 3.")
+    
+def parse_args():
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(description="IP Geolocation Lookup Tool")
+    parser.add_argument("-i", "--ip", help="Single IP address or domain to lookup")
+    parser.add_argument("-b", "--bulk", help="File containing multiple IPs or domains (one per line)")
+    parser.add_argument("-o", "--output", help="Save output to a file")
+    parser.add_argument("-f", "--format", choices=["json", "csv","txt"], default="json", help="Output format")
+    parser.add_argument("-m", "--manual", action="store_true", help="Show the manual")
+
+    return parser.parse_args()
 
 def show_manual():
     """Display the manual for Doxxer."""
@@ -156,17 +167,6 @@ def show_manual():
 
     """
     print(manual_text)
-    
-def parse_args():
-    """Parse command-line arguments."""
-    parser = argparse.ArgumentParser(description="IP Geolocation Lookup Tool")
-    parser.add_argument("-i", "--ip", help="Single IP address or domain to lookup")
-    parser.add_argument("-b", "--bulk", help="File containing multiple IPs or domains (one per line)")
-    parser.add_argument("-o", "--output", help="Save output to a file")
-    parser.add_argument("-f", "--format", choices=["json", "csv","txt"], default="json", help="Output format")
-    parser.add_argument("-m", "--manual", action="store_true", help="Show the manual")
-
-    return parser.parse_args()
     
 def main():
     args = parse_args()
